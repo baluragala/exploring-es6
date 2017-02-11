@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Template String - Tagged Template</title>
+    <style>
+        .hl {
+            background: #ffc600;
+        }
+    </style>
+</head>
+<body>
+<script>
+    function styled(strings, ...values) {
+        console.log(strings,values);
+
+    }
+    const param1 = 'ES6';
+    const param2 = 6;
+    const sentence = styled`i am before param ${param1} i am between param ${param2} i am after param`;
+
+</script>
+</body>
+</html>

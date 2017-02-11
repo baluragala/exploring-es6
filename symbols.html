@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Symbols</title>
+</head>
+<body>
+<script>
+    let players = {
+        'Jim': {score: 20, rank: 10},
+        'Kim': {score: 26, rank: 13},
+        'Kim': {score: 28, rank: 12},
+    }
+    /*console.log(players)
+
+    for(const p in players){
+     console.log(p)
+     }*/
+
+    /*for(const [p,index] of players){
+     console.log(p,index)
+     }*/
+
+    let players1 = {
+        [Symbol('Jim')]: {score: 20, rank: 10},
+        [Symbol('Kim')]: {score: 26, rank: 13},
+        [Symbol('Kim')]: {score: 28, rank: 12}
+    }
+
+    for(const p in players1){
+     console.log(p)
+     }
+
+    /*console.dir(players1);*/
+    let syms = Object.getOwnPropertySymbols(players1);
+    const data = syms.map((sym) => players1[sym]);
+    console.log(data);
+
+    //console.log(players1)
+
+</script>
+</body>
+</html>

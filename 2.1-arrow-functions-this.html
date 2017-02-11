@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+</body>
+<script>
+    var data;
+
+    var dataReadyEvent = document.createEvent("Event");
+    dataReadyEvent.initEvent("dataReady", true, false);
+
+    function DataObject() {
+        this.name = "Data Object";
+        this.data = function () {
+            return data;
+        }
+
+        /* Arrow Function */
+        /*this.onDataCompleted = () => {
+            console.log(this);
+            if (console && console.log) {
+                console.log("Data object property value: " + this.name);
+                console.log("Data object property value: " + this.data());
+            }
+        };*/
+
+        /* Normal Function */
+
+        this.onDataCompleted = function() {
+            console.log(this);
+            if (console && console.log) {
+                console.log("Data object property value: " + this.name);
+                console.log("Data object property value: " + this.data());
+            }
+        };
+
+
+        document.addEventListener('dataReady', this.onDataCompleted.bind(this));
+        // To see the result of not using bind, comment out the preceding line,
+        // and uncomment the following line of code.
+        //document.addEventListener('dataReady', this.onDataCompleted);
+    }
+
+    function dataReadyHandler() {
+        console.log(this);
+        if (console && console.log) {
+            console.log("Data object property value: " + this.name);
+            console.log("Data object property value: " + this.data());
+        }
+    }
+
+    setTimeout(function () {
+        data = [0, 1, 2, 3];
+        document.dispatchEvent(dataReadyEvent);
+    }, 1000);
+
+
+    var dataObj = new DataObject();
+
+    // Output:
+    // Data Object
+    // 0,1,2,3
+</script>
+</html>
