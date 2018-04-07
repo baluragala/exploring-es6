@@ -14,6 +14,10 @@ func(false); // undefined
 
 var height = 7;
 if(height > 6) {
-    var message = 'tall';
-    console.log(`You are ${height} feet tall`);
+    var part1 = 'You are';
+    let part2 = 'feet tall';
+    console.log(`${part1} ${height} ${part2}`);
 }
+
+console.log(part1) // part1 variable is accessible outside if statement
+console.log(part2) // reference error part2 is not accessible outside if
