@@ -1,6 +1,21 @@
 /**
  * Created by moksha on 09/01/17.
  */
+
+for(var i=0; i<10; i++){
+  console.log(i); //i is visible thus is logged in the console as 0,1,2,....,9
+}
+console.log(i); //i is visible here too. thus is logged as 10.
+
+
+
+
+// re-declaration
+
+'use strict';
+var temp = "this is a temp variable";
+var temp = "this is a second temp variable"; //replaced easily
+
 var x = 3;
 function func(randomize) {
     if (randomize) {
